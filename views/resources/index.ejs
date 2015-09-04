@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+  <% include partials/head %>
+<body>
+  <% include partials/nav %>
+
+  <p>resources/index</p>
+
+  <ul>
+    <% resources.forEach(function(resource) { %>
+      <li><%= resource.name %></li>
+    <% }) %>
+  </ul>
+</body>
+</html>
