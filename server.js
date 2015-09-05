@@ -19,7 +19,7 @@ var routes = require('./routes/index');
 
 // load mongoose and connect to a database
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/mean-server-template');
+mongoose.connect('mongodb://localhost/streetEarth');
 
 // start running express, and save the configurations for the express
 // "app" with the variable `app`.
@@ -42,6 +42,18 @@ app.get('*', function (req, res) {
 res.sendFile(path.join(__dirname + '/public/login.html'));
 
   });
+
+/// from page 58 // configure our app to handle CORS requests
+app.use(function(req, res, next) {
+res.setHeader('Access-Control-Allow-Origin', '*');
+res.setHeader('Access-Control-Allow-Methods', 'GET, POST');
+res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type, \
+Authorization');
+
+next();
+
+  });
+
 
 // insert middleware that points to our route definitions
 
