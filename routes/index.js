@@ -1,12 +1,26 @@
 // import Express and the Express Router
-var express = require('express');
-var router = express.Router();
+var express   = require('express'),
+    router    = express.Router(),
+    User      = require('../models/User'),//require user MODEL
+    // passport middleware
+    passport  = require('passport');
+
+
 
 // import controllers for resources
-var welcomeController = require('../controllers/welcome');
+ var SessionsController = require('../controllers/sessions');
 
 // define routes for our application, and send them to route handlers
-router.get('/', welcomeController.index);
+// router.get('/', welcomeController.index);
+   router.get('/', function (req, res) {
+    res.render('index', {user: req.user});
+
+    });
+
+//render sessions controller
+
+router.get('/login', SessionsController.sessionsNew);
+router.post('/login', passport.authenticate, SessionsController.sessionsCreate);
 
 // router.get(    '/resources',          resourcesController.index)
 // router.get(    '/resources/new',      resourcesController.new)

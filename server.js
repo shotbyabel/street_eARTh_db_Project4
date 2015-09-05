@@ -6,6 +6,7 @@ var favicon      = require('serve-favicon');
 var logger       = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser   = require('body-parser');
+var passport     = require('passport');
 
 // check that MongoD is running...
 require('net').connect(27017, 'localhost').on('error', function() {
