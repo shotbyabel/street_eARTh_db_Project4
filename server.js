@@ -26,7 +26,7 @@ mongoose.connect('mongodb://localhost/mean-server-template');
 var app = express();
 
 // view engine setup
-app.set('views', path.join(__dirname, 'views'));
+app.set('views', path.join(__dirname, 'public'));
 app.set('view engine', 'ejs');
 
 // uncomment after placing your favicon in /public
@@ -36,6 +36,12 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+// set up our one route to the login.html file
+app.get('*', function (req, res) {
+res.sendFile(path.join(__dirname + '/public/login.html'));
+
+  });
 
 // insert middleware that points to our route definitions
 
