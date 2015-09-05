@@ -1,10 +1,33 @@
 <!doctype html>
-<html>
+<html lang="en" class="no-js" ng-app="myApp">
+
 <head>
-  <!-- Standard Meta -->
-  <meta charset="utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title></title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Place favicon.ico in the root directory -->
+
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/main.css">
+<!--   Semantic UI -->
+  <link rel="stylesheet" type="text/css" href="/semantic/out/semantic.min.css">
+<!--   <link rel="stylesheet" type="text/css" class="ui" href="//oss.maxcdn.com/semantic-ui/2.1.3/components/component-name.min.css"> -->
+  <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.3.min.js"><\/script>')</script>
+  <script src="/semantic/out/semantic.min.js"></script>
+  <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+
+  <!-- jQuery CDN with local fallback -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<!--   jQuery plugin support script -->
+  <script src="js/plugins.js"></script>
+
+  <!-- Angular CDN with local fallback -->
+
+   <!-- <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.min.js"></script>-->
+  <!--<script>window.angular || document.write('<script src="js/vendor/angular-1.4.4.min.js"><\/script>')</script>-->
 
   <!-- Site Properities -->
   <title>Login Example - Semantic</title>
@@ -32,7 +55,13 @@
 
   <style type="text/css">
     body {
-      background-color: #DADADA;
+      
+      background-image: url(/img/home.jpg);
+      vertical-align: middle;
+      background-position: center center;
+      background-repeat: no-repeat;
+
+      
     }
     body > .grid {
       height: 100%;
@@ -87,12 +116,12 @@
 
 <div class="ui middle aligned center aligned grid">
   <div class="column">
-    <h2 class="ui teal image header">
-      <img src="assets/images/logo.png" class="image">
+    <h1 class="ui white image header">
+      <img src="/img/StE_icon.png" class="image">
       <div class="content">
-        Log-in to your account
+        LOG IN
       </div>
-    </h2>
+    </h1>
     <form class="ui large form">
       <div class="ui stacked segment">
         <div class="field">
@@ -107,7 +136,7 @@
             <input type="password" name="password" placeholder="Password">
           </div>
         </div>
-        <div class="ui fluid large teal submit button">Login</div>
+        <div class="ui fluid large green submit button">Login</div>
       </div>
 
       <div class="ui error message"></div>
