@@ -2,9 +2,17 @@ var mongoose = require('mongoose'),
     Schema   = mongoose.Schema,
     bcrypt   = require('bcryptjs');
 
+///REQ Artwork MODEL///
+var artWork  = require('./Artwork');
 //user schema
 var UserSchema  = new Schema({
     name: String,
+    email: String,
+    artWorks: [{
+              type: mongoose.Schema.Types.ObjectId,
+              ref: 'artWork'
+      }], 
+    
     username: { type: String, require: true, index: {unique: true }}, 
     password: { type: String, require: true, select: false }
 

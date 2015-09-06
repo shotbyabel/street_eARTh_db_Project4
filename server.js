@@ -57,6 +57,11 @@ next();
 
 // insert middleware that points to our route definitions
 
+//////////////////////
+///SOURCE IN MODELS///
+//////////////////////
+var User  = require('./models/User');
+
 // DEFINED ROUTES ARE IN HERE >> routes, ie './routes/index'
 app.use('/', routes);
 

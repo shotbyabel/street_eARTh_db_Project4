@@ -16,9 +16,9 @@ var express   = require('express'),
     res.render('index', {user: req.user});
 
     });
- ///////////////////////////////  
-//page 59 ROUTES FOR OUR API////
-///////////////////////////////
+ //////////////////////// 
+//ROUTES FOR OUR API////
+///////////////////////
 //basic route for home page
 var app = express();
 
@@ -29,7 +29,14 @@ app.get('/', function (req, res) {
 
 //get an instalce of the express router
 var apiRouter = express.Router();
+//middleware to use for all request
+apiRouter.use (function (req, res, next) {
+  //do loggin
+  console.log('visitor came to the street earth db!');
+  //authenticate users later
+  next(); //
 
+});
 //test route to make sure everying is working
 ///accessed at GET http://localhost: /api
 apiRouter.get('/', function (req, res) {
@@ -37,6 +44,29 @@ apiRouter.get('/', function (req, res) {
 
   });
 ///more API ROUTES COMING SOON!////
+apiRouter.route('/users')
+  //// create a user (accessed at POST http://localhost:8080/api/users)
+  .post (function(req, res) {
+    var user = new User();//create new instance of User model
+    //set the users info (comes fr. req.)
+    user.name     = req.body.name;
+    user.username = req.body.username;
+    user.password = req.body.password;
+    ///user SAVE and chek for err
+    user.save (function(err) {
+      if (err) {
+        //duplicate entry
+        if (err.code ==1100)
+          return res.json({ success: false, message: 'User name is taken, try again! '});
+        else 
+          return res.send(err);  
+
+      }
+
+            res.json({ message: 'User created!'});
+
+        });
+    })
 
 ///REGISTER OUR ROUTES----------------------
 //all of our routes will be prefixed with /api
