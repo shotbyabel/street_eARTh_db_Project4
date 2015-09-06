@@ -1,17 +1,17 @@
 var mongoose = require('mongoose'),
     Schema   = mongoose.Schema,
-    bcrypt   = require('bcryptjs');
+    bcrypt   = require('bcryptjs'),
+    bodyParser = require('body-parser'); 
 
 ///REQ Artwork MODEL///
-var artWork  = require('./Artwork');
+// var artWork  = require('./Artwork');
 //user schema
-var UserSchema  = new Schema({
+var UserSchema  = new Schema ({
     name: String,
-    email: String,
-    artWorks: [{
-              type: mongoose.Schema.Types.ObjectId,
-              ref: 'artWork'
-      }], 
+    // artWorks: [{
+    //           type: mongoose.Schema.Types.ObjectId,
+    //           ref: 'artWork'
+    //   }], 
     
     username: { type: String, require: true, index: {unique: true }}, 
     password: { type: String, require: true, select: false }
@@ -37,7 +37,7 @@ bcrypt.hash(user.password, null, null, function (err, hash) {
 UserSchema.methods.comparePassword = function (password) {
   var user = this;
 
-  return bcrypt.compareSync (password, user.password);
+  return bcrypt.compareSync(password, user.password);
 
 };
 

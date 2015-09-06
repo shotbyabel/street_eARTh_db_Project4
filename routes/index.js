@@ -1,5 +1,6 @@
 // import Express and the Express Router
-var express   = require('express'),
+var express   = require('express'), 
+    bodyParser   = require('body-parser'),
     router    = express.Router(),
     User      = require('../models/User'),//require user MODEL
     port      = process.env.PORT || 8080;
@@ -46,9 +47,10 @@ apiRouter.get('/', function (req, res) {
 ///more API ROUTES COMING SOON!////
 apiRouter.route('/users')
   //// create a user (accessed at POST http://localhost:8080/api/users)
-  .post (function(req, res) {
+  .post (function (req, res) {
     var user = new User();//create new instance of User model
     //set the users info (comes fr. req.)
+    
     user.name     = req.body.name;
     user.username = req.body.username;
     user.password = req.body.password;
@@ -56,14 +58,16 @@ apiRouter.route('/users')
     user.save (function(err) {
       if (err) {
         //duplicate entry
-        if (err.code ==1100)
-          return res.json({ success: false, message: 'User name is taken, try again! '});
+        if (err.code == 1100)
+          return res.json({ success: false, message: 'A user with that\
+username already exists. '});
         else 
           return res.send(err);  
 
       }
 
             res.json({ message: 'User created!'});
+
 
         });
     })
