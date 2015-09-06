@@ -1,19 +1,14 @@
 var mongoose = require('mongoose'),
     Schema   = mongoose.Schema,
-    bcrypt   = require('bcryptjs'),
-    bodyParser = require('body-parser'); 
+    bcrypt   = require('bcrypt-nodejs');
+     
 
 ///REQ Artwork MODEL///
 // var artWork  = require('./Artwork');
 //user schema
-var UserSchema  = new Schema ({
+var UserSchema  = new Schema({
     name: String,
-    // artWorks: [{
-    //           type: mongoose.Schema.Types.ObjectId,
-    //           ref: 'artWork'
-    //   }], 
-    
-    username: { type: String, require: true, index: {unique: true }}, 
+    username: { type: String, require: true, index: { unique: true }}, 
     password: { type: String, require: true, select: false }
 
 });
