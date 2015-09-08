@@ -66,4 +66,15 @@ ____
 
 - Semantic UI
 
-- UI Router
+- UI Routerœ
+
+_________
+
+steps 
+
+route oauth/twitter
+Consumer Key (API Key)  inRHdwb5AsjBNBxnEjsfDkvI3 
+
+Consumer Secret (API Secret)  MuUoRKb1j1di5frXrsnIAfcIVcO4Bi3q5l5jyPzns7bPgQL8aR
+
+npm install --save dotenv
