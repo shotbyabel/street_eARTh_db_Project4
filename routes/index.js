@@ -32,6 +32,14 @@ app.get('/oauth/twitter', function (req, res) {
 
 });
 
+///Facebook auth route
+app.get('/auth/facebook/callback' function (req, res) {
+  res.send('Hola Mundo!');
+})
+
+
+///
+
 //get an instance of the express router
 var apiRouter = express.Router();
 

@@ -56,8 +56,9 @@ app.use(function(req, res, next) {
 });
 
 // insert middleware that points to our route definitions
-////Twitter Config Strategy
 
+/////////////////////////////////
+////Twitter Config Strategy//////
 passport.use(new TwitterStrategy({
     consumerKey: TWITTER_KEY,
     consumerSecret: TWITTER_SECRET,
@@ -70,6 +71,26 @@ passport.use(new TwitterStrategy({
     });
 //   }
 // ));
+/////////////////////////////////
+////FACEBOOK Config Strategy/////
+passport.use(new FacebookStrategy({
+    clientID: FACEBOOK_ID,
+    clientSecret: FACEBOOK_SECRET,
+    callbackURL: "http://localhost:3000/auth/facebook/callback",
+    enableProof: false
+  },
+
+function(accessToken, refreshToken, profile, done) {
+  console.log('booya Zuckerberg');
+  
+    // User.findOrCreate({ facebookId: profile.id }, function (err, user) {
+    //   return done(err, user);
+    });
+//   }
+// ));
+
+
+
 
 //////////////////////
 ///SOURCE IN MODELS///
