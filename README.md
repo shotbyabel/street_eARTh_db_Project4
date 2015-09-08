@@ -86,12 +86,13 @@ AIzaSyBKtM2B8RrfkDhFd25eeERhfpiQuBMsefo
 
 **Google Oauth**
 streetEarthApp
-http://127.0.0.1:3000/oauth/twitter
+http://127.0.0.1:3000/oauth/google
 
 Client ID
 1021390864185-nvafr0g9nse73290e3ggtcggr48vncb1.apps.googleusercontent.com
 Here is your client secret
 v77dbmt1zSANYhgFEotAJjOe
+
 
 
 

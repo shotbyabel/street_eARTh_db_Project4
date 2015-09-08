@@ -27,18 +27,25 @@ app.get('/', function (req, res) {
   });
 
 ////twitter auth route
-app.get('/oauth/twitter', function (req, res) {
-  res.send('Hello World');
-
-});
+app.get('/login/twitter',
+  passport.authenticate('twitter'));
+// });
 
 ///Facebook auth route
-app.get('/auth/facebook/callback' function (req, res) {
-  res.send('Hola Mundo!');
-})
+// app.get('/auth/facebook/callback' function (req, res) {
+//   res.send('Hola Mundo!');
+// })
 
+//Google auth route
+// app.get('oauth/google'), 
+//   passport.authenticate('google', { scope: 'https://googleapis.com/auth/plus.login'}));
 
-///
+// app.get('/oauth/google/callback'
+//   passport.authenticate('google', { failureRedirect: '/login' }),
+//   function (req, res) {
+//     //succesful authentication, redirect home
+//     res.redirect('/');
+//   });  
 
 //get an instance of the express router
 var apiRouter = express.Router();

@@ -1,14 +1,25 @@
 // requiring/loading all of our dependencies/libaries
-var express      = require('express');
-var app          = express();// define our app using express
-var bodyParser   = require('body-parser');
-var logger       = require('morgan');
-var mongoose     = require('mongoose');
-var path         = require('path');
-var favicon      = require('serve-favicon');
-var cookieParser = require('cookie-parser');
-var passport     = require('passport');
-var jwt          = require('jsonwebtoken');
+var express         = require('express');
+var app             = express();// define our app using express
+var bodyParser      = require('body-parser');
+var logger          = require('morgan');
+var mongoose        = require('mongoose');
+var path            = require('path');
+var favicon         = require('serve-favicon');
+var cookieParser    = require('cookie-parser');
+var passport        = require('passport');
+var jwt             = require('jsonwebtoken');
+//OAUTH
+// var Facebook        = require('/'),
+var TwitterStrategy = require('passport-twitter').Strategy;
+var GoogleStrategy  = require('passport-google-oauth').OAuth2Strategy;
+// API Access link for creating client ID and secret:
+// https://code.google.com/apis/console/
+var GOOGLE_CLIENT_ID = '1021390864185-nvafr0g9nse73290e3ggtcggr48vncb1.apps.googleusercontent.com';
+var GOOGLE_CLIENT_SECRET = 'v77dbmt1zSANYhgFEotAJjOe';
+
+
+//.ENV
 require('dotenv').load();
 
 //super secret token
@@ -56,41 +67,54 @@ app.use(function(req, res, next) {
 });
 
 // insert middleware that points to our route definitions
-
 /////////////////////////////////
 ////Twitter Config Strategy//////
 passport.use(new TwitterStrategy({
-    consumerKey: TWITTER_KEY,
-    consumerSecret: TWITTER_SECRET,
+    consumerKey: process.env.TWITTER_KEY,
+    consumerSecret: process.env.TWITTER_SECRET,
     callbackURL: "http://127.0.0.1:3000/oauth/twitter"
   },
-  function(token, tokenSecret, profile, done) {
-    console.log('it worked?');
-    // User.findOrCreate({ twitterId: profile.id }, function (err, user) {
-    //   return done(err, user);
-    });
-//   }
-// ));
+  function (token, tokenSecret, profile, cb) {
+
+    return cb(null, profile);
+  }));
+
+
+
+
 /////////////////////////////////
-////FACEBOOK Config Strategy/////
-passport.use(new FacebookStrategy({
-    clientID: FACEBOOK_ID,
-    clientSecret: FACEBOOK_SECRET,
-    callbackURL: "http://localhost:3000/auth/facebook/callback",
-    enableProof: false
-  },
+////GOOGLEConfig Strategy/////
+passport.use(new GoogleStrategy({
+  clientID: GOOGLE_CLIENT_ID,
+  clientSecret: GOOGLE_CLIENT_SECRET,
+  callbackURL: 'http://127.0.0.1:3000/oauth/google'
+},
 
 function(accessToken, refreshToken, profile, done) {
-  console.log('booya Zuckerberg');
-  
-    // User.findOrCreate({ facebookId: profile.id }, function (err, user) {
-    //   return done(err, user);
+  console.log('Hello Mr. Indian guy!');
+    User.findOrCreate({ googleId: profile.id }, function (err, user) {
+      return done(err, user);
     });
+
+  }
+));
+// /////////////////////////////////
+// ////FACEBOOK Config Strategy/////
+// passport.use(new FacebookStrategy({
+//     clientID: FACEBOOK_ID,
+//     clientSecret: FACEBOOK_SECRET,
+//     callbackURL: "http://localhost:3000/auth/facebook/callback",
+//     enableProof: false
+//   },
+
+// function(accessToken, refreshToken, profile, done) {
+//   console.log('booya Zuckerberg');
+
+//     // User.findOrCreate({ facebookId: profile.id }, function (err, user) {
+//     //   return done(err, user);
+//     });
 //   }
 // ));
-
-
-
 
 //////////////////////
 ///SOURCE IN MODELS///
