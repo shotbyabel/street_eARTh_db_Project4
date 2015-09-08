@@ -9,6 +9,7 @@ var favicon      = require('serve-favicon');
 var cookieParser = require('cookie-parser');
 var passport     = require('passport');
 var jwt          = require('jsonwebtoken');
+require('dotenv').load();
 
 //super secret token
 var superSecret = 'project4';
