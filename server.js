@@ -8,6 +8,10 @@ var path         = require('path');
 var favicon      = require('serve-favicon');
 var cookieParser = require('cookie-parser');
 var passport     = require('passport');
+var jwt          = require('jsonwebtoken');
+
+//super secret token
+var superSecret = 'project4';
 
 // check that MongoD is running...
 require('net').connect(27017, 'localhost').on('error', function() {
