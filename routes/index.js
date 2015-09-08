@@ -26,6 +26,12 @@ app.get('/', function (req, res) {
 
   });
 
+////twitter auth route
+app.get('/oauth/twitter', function (req, res) {
+  res.send('Hello World');
+
+});
+
 //get an instance of the express router
 var apiRouter = express.Router();
 

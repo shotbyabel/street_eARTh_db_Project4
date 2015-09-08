@@ -56,6 +56,20 @@ app.use(function(req, res, next) {
 });
 
 // insert middleware that points to our route definitions
+////Twitter Config Strategy
+
+passport.use(new TwitterStrategy({
+    consumerKey: TWITTER_KEY,
+    consumerSecret: TWITTER_SECRET,
+    callbackURL: "http://127.0.0.1:3000/oauth/twitter"
+  },
+  function(token, tokenSecret, profile, done) {
+    console.log('it worked?');
+    // User.findOrCreate({ twitterId: profile.id }, function (err, user) {
+    //   return done(err, user);
+    });
+//   }
+// ));
 
 //////////////////////
 ///SOURCE IN MODELS///
