@@ -3,9 +3,9 @@
       router        = express.Router(),
       bodyParser    = require('body-parser'),
       User          = require('../models/User'),//require user MODEL
-      passport      = require('passport');
+      passport      = require('passport'),
       //basic route for home page
-      // app = express();
+      app = express();
 
 // import controllers for resources
   // var SessionsController = require('../controllers/sessions');

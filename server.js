@@ -2,6 +2,7 @@
 //.ENV
 require('dotenv').load();
 var express         = require('express');
+var expressSession  = require('express-session');
 var app             = express();// define our app using express
 var bodyParser      = require('body-parser');
 var logger          = require('morgan');
@@ -45,6 +46,7 @@ app.use(bodyParser.json());
 app.use(logger('dev'));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(require('express-session')({ secret: 'keyboard cat', resave: true, saveUninitialized: true }));
 
 /// from page 58 // configure our app to handle CORS requests
 // app.use(function(req, res, next) {
