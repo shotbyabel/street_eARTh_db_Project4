@@ -1,7 +1,7 @@
 // import Express and the Express Router
 var express       = require('express'), 
-    bodyParser    = require('body-parser'),
     router        = express.Router(),
+    bodyParser    = require('body-parser'),
     User          = require('../models/User'),//require user MODEL
     port          = process.env.PORT || 8080,
     passport      = require('passport');
@@ -11,41 +11,74 @@ var express       = require('express'),
 
 // define routes for our application, and send them to route handlers
 // router.get('/', welcomeController.index);
-   // router.get('/', function (req, res) {
-   //  res.render('index', {user: req.user});
+   router.get('/', function (req, res) {
+    res.render('index', {user: req.user});
 
-   //  });
- /////////////////////////////////////////////////// 
-////ROUTES FOR OUR USERS API///NOT USING///////////
-///////////////////////////////////////////////////
+    });
+
 //basic route for home page
 var app = express();
 
-app.get('/', function (req, res) {
-    res.send('street earth db API');
 
+
+///////////////////////////
+////TWITTER AUTH ROUTE////
+app.get('/',
+  function(req, res) {
+    res.render('home', { user: req.user });
   });
 
-////twitter auth route
+app.get('/login',
+  function(req, res){
+    res.render('login');
+  });
+
 app.get('/login/twitter',
   passport.authenticate('twitter'));
-// });
 
-///Facebook auth route
-// app.get('/auth/facebook/callback' function (req, res) {
-//   res.send('Hola Mundo!');
-// })
+app.get('/login/twitter/return', 
+  passport.authenticate('twitter', { failureRedirect: '/login' }),
+  function(req, res) {
+    res.redirect('/');
+  });
 
-//Google auth route
-// app.get('oauth/google'), 
-//   passport.authenticate('google', { scope: 'https://googleapis.com/auth/plus.login'}));
+// app.get('/profile',
+//   require('connect-ensure-login').ensureLoggedIn(),
+//   function(req, res){
+//     res.render('profile', { user: req.user });
+//   });
+//////////////////////////////
+/////FACEBOOK Oauth ROUTES////
+//////////////////////////////
+// Facebook routes
+router.get('/auth/facebook', passport.authenticate('facebook', {scope: ['email', 'user_birthday', 'user_location']}));
 
-// app.get('/oauth/google/callback'
-//   passport.authenticate('google', { failureRedirect: '/login' }),
-//   function (req, res) {
-//     //succesful authentication, redirect home
-//     res.redirect('/');
-//   });  
+router.get('/auth/facebook/callback', passport.authenticate('facebook', {successRedirect: '/home', failureRedirect: '/login'}));
+
+function isLoggedIn(request, response, next){
+    if(request.isAuthenticated()){return next();}
+    response.redirect('/login');
+}
+////////////////////////
+///GOOGLE AUTH ROUTE////
+app.get('/auth/google',
+  passport.authenticate('google', { scope: ['https://www.googleapis.com/auth/plus.login'] }),
+  function(req, res){
+    // The request will be redirected to Google for authentication, so this
+    // function will not be called.
+  });
+
+app.get('/auth/google/callback', 
+  passport.authenticate('google', { failureRedirect: '/login' }),
+  function(req, res) {
+    res.redirect('/');
+  });
+
+app.get('/logout', function(req, res){
+  req.logout();
+  res.redirect('/');
+});
+
 
 //get an instance of the express router
 var apiRouter = express.Router();

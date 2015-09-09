@@ -1,4 +1,6 @@
 // requiring/loading all of our dependencies/libaries
+//.ENV
+require('dotenv').load();
 var express         = require('express');
 var app             = express();// define our app using express
 var bodyParser      = require('body-parser');
@@ -7,31 +9,37 @@ var mongoose        = require('mongoose');
 var path            = require('path');
 var favicon         = require('serve-favicon');
 var cookieParser    = require('cookie-parser');
-var passport        = require('passport');
 var jwt             = require('jsonwebtoken');
 //OAUTH
-// var Facebook        = require('/'),
-var TwitterStrategy = require('passport-twitter').Strategy;
-var GoogleStrategy  = require('passport-google-oauth').OAuth2Strategy;
+// var FacebookStrategy = require('passport-facebook').Strategy 
+// var TwitterStrategy  = require('passport-twitter').Strategy;
+// var GoogleStrategy   = require('passport-google-oauth').OAuth2Strategy;
 // API Access link for creating client ID and secret:
 // https://code.google.com/apis/console/
-var GOOGLE_CLIENT_ID = '1021390864185-nvafr0g9nse73290e3ggtcggr48vncb1.apps.googleusercontent.com';
-var GOOGLE_CLIENT_SECRET = 'v77dbmt1zSANYhgFEotAJjOe';
+///////////////////
 
+//////////////////
+///loading routes defined in the /routes folder
 
-//.ENV
-require('dotenv').load();
+var routes          = require('./routes/index');
+var passport        = require('passport');
+var LocalStrategy   = require('passport-local').Strategy;
 
+//////////////////
+///Oauth
+/////////////////
+var Facebook = require('./config/facebook');
+var Twitter  = require('./config/twitter');
+var Google   = require('./config/google');
 //super secret token
-var superSecret = 'project4';
+// var superSecret = 'project4';
 
 // check that MongoD is running...
 require('net').connect(27017, 'localhost').on('error', function() {
   console.log("YOU MUST BOW BEFORE THE MONGOD FIRST, MORTAL!");
   process.exit(0);
 });
-// loading routes defined in the /routes folder
-var routes = require('./routes/index');
+
 // load mongoose and connect to a database
 mongoose.connect('mongodb://localhost/streetEarth');
 // start running express, and save the configurations for the express
@@ -50,79 +58,102 @@ app.use(logger('dev'));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-// set up our one route to the login.html file
-app.get('*', function (req, res) {
-res.sendFile(path.join(__dirname + '/public/login.html'));
-
-  });
-
 /// from page 58 // configure our app to handle CORS requests
-app.use(function(req, res, next) {
-  res.setHeader('Access-Control-Allow-Origin', '*');
-  res.setHeader('Access-Control-Allow-Methods', 'GET, POST');
-  res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type, Authorization');
+// app.use(function(req, res, next) {
+//   res.setHeader('Access-Control-Allow-Origin', '*');
+//   res.setHeader('Access-Control-Allow-Methods', 'GET, POST');
+//   res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type, Authorization');
   
-  next();
+//   next();
 
-});
+// });
 
 // insert middleware that points to our route definitions
 /////////////////////////////////
 ////Twitter Config Strategy//////
-passport.use(new TwitterStrategy({
-    consumerKey: process.env.TWITTER_KEY,
-    consumerSecret: process.env.TWITTER_SECRET,
-    callbackURL: "http://127.0.0.1:3000/oauth/twitter"
-  },
-  function (token, tokenSecret, profile, cb) {
-
-    return cb(null, profile);
-  }));
-
-
-
-
-/////////////////////////////////
-////GOOGLEConfig Strategy/////
-passport.use(new GoogleStrategy({
-  clientID: GOOGLE_CLIENT_ID,
-  clientSecret: GOOGLE_CLIENT_SECRET,
-  callbackURL: 'http://127.0.0.1:3000/oauth/google'
-},
-
-function(accessToken, refreshToken, profile, done) {
-  console.log('Hello Mr. Indian guy!');
-    User.findOrCreate({ googleId: profile.id }, function (err, user) {
-      return done(err, user);
-    });
-
-  }
-));
-// /////////////////////////////////
-// ////FACEBOOK Config Strategy/////
-// passport.use(new FacebookStrategy({
-//     clientID: FACEBOOK_ID,
-//     clientSecret: FACEBOOK_SECRET,
-//     callbackURL: "http://localhost:3000/auth/facebook/callback",
-//     enableProof: false
+// passport.use(new TwitterStrategy({
+//     consumerKey: process.env.TWITTER_KEY,
+//     consumerSecret: process.env.TWITTER_SECRET,
+//     callbackURL: "http://127.0.0.1:3000/oauth/twitter"
 //   },
 
-// function(accessToken, refreshToken, profile, done) {
-//   console.log('booya Zuckerberg');
+//   function (token, tokenSecret, profile, cb) {
 
-//     // User.findOrCreate({ facebookId: profile.id }, function (err, user) {
-//     //   return done(err, user);
+//     return cb(null, profile);
+  
+//   }));
+
+/////////////////////////////////
+////GOOGLE Config Strategy/////
+// passport.use(new GoogleStrategy({
+//   clientID: process.env.GOOGLE_CLIENT_ID,
+//   clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+//   callbackURL: 'http://127.0.0.1:3000/oauth/google'
+// },
+
+// function(accessToken, refreshToken, profile, done) {
+//     // asynchronous verification, for effect...
+//     process.nextTick(function () {
+      
+//       return done(null, profile);
+    
+//     });
+  
+//   }
+
+// ));
+/////////////////////////////////
+////FACEBOOK Config Strategy/////
+// passport.use(new FacebookStrategy({
+//     clientID: process.env.FACEBOOK_APP_ID,
+//     clientSecret: process.env.FACEBOOK_APP_SECRET,
+//     callbackURL: "http://localhost:3000/auth/facebook/callback"
+//   },
+//   function(accessToken, refreshToken, profile, done) {
+//     // asynchronous verification, for effect...
+//     process.nextTick(function () {
+      
+//       // To keep the example simple, the user's Facebook profile is returned to
+//       // represent the logged-in user.  In a typical application, you would want
+//       // to associate the Facebook account with a user record in your database,
+//       // and return that user instead.
+//       return done(null, profile);
 //     });
 //   }
 // ));
+
+
+// Initialize Passport and restore authentication state, if any, from the
+// session.
+app.use(passport.initialize());
+app.use(passport.session());
+
+
+// // loading routes defined in the /routes folder
+// var routes = require('./routes/index');
 
 //////////////////////
 ///SOURCE IN MODELS///
 //////////////////////
 var User  = require('./models/User');
 
+
+// set up our one route to the login.html file
+app.get('*', function (req, res) {
+  res.sendFile(path.join(__dirname + '/public/login.html'));
+});
+
 // DEFINED ROUTES ARE IN HERE >> routes, ie './routes/index'
 app.use('/', routes);
+
+////////////////////
+////PASSPORT CONFIG
+//////////////////////--
+// var User = require('./models/User');
+// passport.use(new LocalStrategy(User.authenticate()));
+// passport.serializeUser(User.serializeUser());
+// passport.deserializeUser(User.deserializeUser());
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

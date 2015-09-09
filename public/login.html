@@ -10,8 +10,8 @@
 
   <!-- Place favicon.ico in the root directory -->
 
-  <link rel="stylesheet" href="css/normalize.css">
-  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="/css/normalize.css">
+  <link rel="stylesheet" href="/css/main.css">
 
   <!-- jQuery CDN with local fallback -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
@@ -22,7 +22,7 @@
   <script src="/semantic/out/semantic.min.js"></script>
 
   <!-- jQuery plugin support script -->
-  <script src="js/plugins.js"></script>
+  <script src="/js/plugins.js"></script>
 
   <!-- Angular CDN with local fallback -->
   <!-- <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.min.js"></script> -->
@@ -133,22 +133,23 @@
       <div class="ui error message"></div>
 
     </form>
-
+    
     <div class="ui message">
-    <button class="ui facebook button">
+    <a class="ui facebook button" href="/auth/facebook">
       <i class="facebook icon"></i>
       Facebook
-    </button>
+    </a>
 
     <a class="ui twitter button" href="/login/twitter">
       <i class="twitter icon"></i>Twitter
     </a>
 
-    <button class="ui google plus button">
+
+    <a class="ui google plus button" href="/auth/google">
       <i class="google plus icon"></i>
       Google Plus
-    </button>
-    <a href="#"></a>
+    </a>
+  
     </div>
   </div>
 </div>
