@@ -26,6 +26,14 @@
    router.get('/users/show', function (req, res ) {
     res.render('users/show')
   })
+
+   router.get('/search', function (req, res ) {
+    res.render('search')
+  })
+
+   router.get('/gallery', function (req, res ) {
+    res.render('gallery')
+  })
 // //basic route for home page
 //   var app = express();
 ///////////////////////////

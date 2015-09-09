@@ -6,3 +6,21 @@ h1 {
 #extra-width{
       width: 102%;
 }
+
+    body {
+      
+      background-image: url(/img/home.jpg);
+      vertical-align: middle;
+      background-position: center center;
+      background-repeat: no-repeat;
+
+      
+    }
+    body > .grid {
+      height: 100%;
+    }
+    .image {
+      margin-top: -100px;
+    }
+    .column {
+      max-width: 450px;

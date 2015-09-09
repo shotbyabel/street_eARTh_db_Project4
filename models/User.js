@@ -4,14 +4,21 @@ var mongoose = require('mongoose'),
      
 
 ///REQ Artwork MODEL///
-// var artWork  = require('./Artwork');
+var ArtWork  = require('./Artwork');
 //user schema
 var UserSchema  = new Schema({
     name: String,
-    username: { type: String, require: true, index: { unique: true }}, 
-    password: { type: String, require: true, select: false }
+    location: String,
+    email: { type: String, require: true, index: { unique: true },
+    password: { type: String, require: true, select: false }},
+    photo: String,
+
+
 
 });
+
+
+
 
 // hash the psw before user is saved
 UserSchema.pre('save', function (next) {
