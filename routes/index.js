@@ -4,34 +4,43 @@
       bodyParser    = require('body-parser'),
       User          = require('../models/User'),//require user MODEL
       passport      = require('passport');
+      //basic route for home page
+      // app = express();
 
 // import controllers for resources
-  var SessionsController = require('../controllers/sessions');
+  // var SessionsController = require('../controllers/sessions');
 
 // define routes for our application, and send them to route handlers
   router.get('/', function (req, res) {
   res.render('index', {user: req.user});
 
     });
-//basic route for home page
-  var app = express();
+  router.get('/signup', function (req, res ) {
+    res.render('signup')
+  })
+
+   router.get('/contribute', function (req, res ) {
+    res.render('contribute')
+  })
+// //basic route for home page
+//   var app = express();
 ///////////////////////////
 ////TWITTER AUTH ROUTE////
 /////////////////////////
-  app.get('/',
+  router.get('/',
   function(req, res) {
     res.render('home', { user: req.user });
   });
 
-  app.get('/login',
+  router.get('/login',
   function(req, res){
     res.render('login');
   });
 
-  app.get('/login/twitter',
+  router.get('/login/twitter',
   passport.authenticate('twitter'));
 
-  app.get('/login/twitter/return', 
+  router.get('/login/twitter/return', 
   passport.authenticate('twitter', { failureRedirect: '/login' }),
   function(req, res) {
     res.redirect('/');
@@ -54,7 +63,7 @@
 ////////////////////////
 ///GOOGLE AUTH ROUTE////
 ////////////////////////
-  app.get('/auth/google',
+  router.get('/auth/google',
     passport.authenticate('google', { scope: ['https://www.googleapis.com/auth/plus.login'] }),
     function(req, res){
     // The request will be redirected to Google for authentication, so this
@@ -62,14 +71,14 @@
   
     });
 
-  app.get('/auth/google/callback', 
+  router.get('/auth/google/callback', 
   passport.authenticate('google', { failureRedirect: '/login' }),
   function(req, res) {
     res.redirect('/');
 
   });
 
-  app.get('/logout', function(req, res){
+  router.get('/logout', function(req, res){
     req.logout();
     res.redirect('/');
 
@@ -82,8 +91,8 @@
 // console.log('' + port);
 
 //*Render sessions controller
-router.get('/login', SessionsController.sessionsNew);
-router.post('/login', passport.authenticate, SessionsController.sessionsCreate);
+// router.get('/login', SessionsController.sessionsNew);
+// router.post('/login', passport.authenticate, SessionsController.sessionsCreate);
 
 // router.get(    '/resources',          resourcesController.index)
 // router.get(    '/resources/new',      resourcesController.new)

@@ -35,8 +35,8 @@ mongoose.connect('mongodb://localhost/streetEarth');
 // var app = express();
 
 // view engine setup
-app.set('views', path.join(__dirname, 'public'));
-// app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'ejs');
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
@@ -59,7 +59,7 @@ app.use(passport.session());
 
 
 // // loading routes defined in the /routes folder
-// var routes = require('./routes/index');
+var routes = require('./routes/index');
 
 //////////////////////
 ///SOURCE IN MODELS///
@@ -68,9 +68,9 @@ var User  = require('./models/User');
 
 
 // set up our one route to the login.html file
-app.get('*', function (req, res) {
-  res.sendFile(path.join(__dirname + '/public/login.html'));
-});
+// app.get('*', function (req, res) {
+//   res.sendFile(path.join(__dirname + '/public/login.html'));
+// });
 
 // DEFINED ROUTES ARE IN HERE >> routes, ie './routes/index'
 app.use('/', routes);
