@@ -22,6 +22,10 @@
    router.get('/contribute', function (req, res ) {
     res.render('contribute')
   })
+
+   router.get('/users/show', function (req, res ) {
+    res.render('users/show')
+  })
 // //basic route for home page
 //   var app = express();
 ///////////////////////////
