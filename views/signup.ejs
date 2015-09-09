@@ -23,9 +23,6 @@
 
   <!-- jQuery plugin support script -->
   <script src="/js/plugins.js"></script>
-
-
-
 <!-- <div class="ui inverted fixed responsive green large menu">
   <a class="active item">
     ABOUT
@@ -38,46 +35,64 @@
   </a>
 </div> -->
 
-  
-
-
-
 <div class="ui inverted segment green">
-  <div class="ui inverted form">
+  <form class="ui inverted form" method="post" action="/user_id">
+    
     <div class="two fields">
       <div class="field">
         <label>Name</label>
-        <input placeholder="First Name" type="text">
+        <input placeholder="your name" type="text">
       </div>
+
       <div class="field">
         <label>Location</label>
-        <input placeholder="Last Name" type="text">
+        <input placeholder="your location" type="text">
       </div>
     </div>
+
+    <div class="two fields">
+      <div class="field">
+        <label>E-mail</label>
+        <input placeholder="valid email" type="text">
+      </div>
+
+      <div class="field">
+        <label>Password</label>
+        <input placeholder="your password" type="text">
+      </div>
+    </div>
+
+    <div class="two fields">
+      <div class="field">
+        <label>Your photo</label>
+        <input placeholder="copy photo url" type="text">
+      </div>
+
+    <div class="field">
+        <label>Location</label>
+        <input placeholder="your location" type="text">
+      </div>
+    </div>
+
     <div class="inline field">
       <div class="ui checkbox">
         <input type="checkbox" tabindex="0" class="hidden">
         <label>I agree to the terms and conditions</label>
       </div>
     </div>
-    <div class="field">
-    <div class="required field">
-    <label>E-mail</label>
-    <input type="email" placeholder="joe@schmoe.com">
-  </div>
-
-  <div>
+  <!--<div>
     <label for="file" class="ui icon button">
         <i class="photo icon"></i>
         Your Photo</label>
     <input type="file" id="file" style="display:none">
-  </div>
+  </div>-->
 
   <div class="ui success message">
     <div class="header">Form Completed</div>
     <p>You are ready to contribute!.</p>
   </div>
-  <div class="ui submit button">Submit</div>
+  <input type="submit" class="ui submit button">Submit</input>
+  </form>
 </div>
   </div>
 </div>

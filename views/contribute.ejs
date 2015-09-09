@@ -38,13 +38,9 @@
   </a>
 </div> -->
 
-  
-
-
-
-<div class="ui inverted segment green">
+  <div class="ui inverted segment green">
   <form class="ui inverted form" method="post" action="/artworks">
-    <div class="two fields">
+    <div class="one field">
 
       <!-- <div class="field">
         <label for="file" class="ui icon button">
@@ -54,42 +50,48 @@
       </div> -->
 
       <div class="field">
-        <label>Photo URI</label>
-        <input placeholder="Photo URI" type="text">
+        <label>Your Street Art Photo URI Link</label>
+        <input placeholder="paste photo's uri here.." type="text">
       </div>
 
-      <h4 class="ui dividing header">Choose a Location</h4>
+      <h3 class="ui dividing header">Choose a Location</h3>
       <div class="field">
         <label>Locations</label>
         <select class="ui fluid dropdown"></select>
       </div>
-
-      <h4 class="ui dividing header">... or enter a New Location</h4>
+     </div> 
+      <h3 class="ui dividing header">... or enter a New Location</h3>
       
+    <div class="two fields">
       <div class="field">
-        <label>Country</label>
-        <input placeholder="Country" type="text">
-      </div>
-      <div class="field">
+         <label>Country</label>
+         <input placeholder="i.e USA" type="text">
+        </div>
+      
+       <div class="field">
         <label>City</label>
-        <input placeholder="City" type="text">
+        <input placeholder="i.e Los Angeles" type="text">
+       </div>
       </div>
+
+    <div class="two fields">
       <div class="field">
         <label>Area</label>
-        <input placeholder="Area" type="text">
+        <input placeholder="i.e art district" type="text">
       </div>
+
       <div class="field">
         <label>Landmark</label>
-        <input placeholder="Landmark" type="text">
+        <input placeholder="i.e the container yard" type="text">
       </div>
     </div>
 
-    <div class="inline field">
+    <div class="four fields">
       <div class="ui checkbox">
         <input type="checkbox" tabindex="0">
         <label>Human</label>
       </div>
-
+     
       <div class="ui checkbox">
         <input type="checkbox" tabindex="0">
         <label>Animals</label>
@@ -104,7 +106,10 @@
         <input type="checkbox" tabindex="0" name="scripts">
         <label>Scripts</label>
       </div>
-
+      <br>
+      <br>
+    </div>
+    <div class="four fields">
       <div class="ui checkbox">
         <input type="checkbox" tabindex="0">
         <label>Abstract</label>
@@ -112,7 +117,7 @@
 
       <div class="ui checkbox">
         <input type="checkbox" tabindex="0">
-        <label>Collaboration</label>
+        <label>Collabs</label>
       </div>
 
       <div class="ui checkbox">
@@ -122,13 +127,12 @@
 
       <div class="ui checkbox">
         <input type="checkbox" tabindex="0">
-        <label>Wheat Paste</label>
+        <label>Stencils/Wheat Paste</label>
       </div>
     </div>
     <br>
 
     <br>
-
     <!-- <div class="ui success message">
       <div class="header">Form Completed</div>
       <p>You are ready to contribute!.</p>
