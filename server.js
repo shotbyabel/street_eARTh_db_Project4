@@ -15,6 +15,7 @@ var jwt             = require('jsonwebtoken');
 var routes          = require('./routes/index');
 var passport        = require('passport');
 var LocalStrategy   = require('passport-local').Strategy;
+var apiRouter       = require('./routes/userApiRoutes');
 
 //////////////////
 ///Oauth
@@ -48,11 +49,17 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(require('express-session')({ secret: 'keyboard cat', resave: true, saveUninitialized: true }));
 
-/// from page 58 // configure our app to handle CORS requests
-// app.use(function(req, res, next) {
-//   res.setHeader('Access-Control-Allow-Origin', '*');
-//   res.setHeader('Access-Control-Allow-Methods', 'GET, POST');
-//   res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type, Authorization');
+//||||||USERS API CONFIG||||||||||||||||||||||||||
+//||configure our app to handle CORS requests
+app.use(function(req, res, next) {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST');
+  res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type, Authorization');
+
+next();
+});
+
+app.use(logger('dev'));
 
 // Initialize Passport and restore authentication state, if any, from the
 // session.
@@ -76,6 +83,7 @@ var User  = require('./models/User');
 
 // DEFINED ROUTES ARE IN HERE >> routes, ie './routes/index'
 app.use('/', routes);
+// app.use('/api', apiRouter);
 
 ////////////////////
 ////PASSPORT CONFIG

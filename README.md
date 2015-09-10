@@ -93,6 +93,8 @@ Client ID
 Here is your client secret
 v77dbmt1zSANYhgFEotAJjOe
 
+background-image:  url(http://i.imgur.com/7xoaUaM.gif) no-repeat center center fixed; 
+
 
 
 

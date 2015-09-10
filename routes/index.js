@@ -3,12 +3,9 @@
       router        = express.Router(),
       bodyParser    = require('body-parser'),
       User          = require('../models/User'),//require user MODEL
-      passport      = require('passport'),
-      //basic route for home page
-      app = express();
-
-// import controllers for resources
-  // var SessionsController = require('../controllers/sessions');
+      passport      = require('passport');
+     
+  
 
 // define routes for our application, and send them to route handlers
   router.get('/', function (req, res) {
@@ -34,15 +31,40 @@
    router.get('/gallery', function (req, res ) {
     res.render('gallery')
   })
+
+   router.get('/about', function (req, res ) {
+    res.render('about')
+  })
+//||||||||||||||||||||||||||||||||||||||||||||||||
+//||||||USERS API ROUTES||||||||||||||||||||||||||
+//||||||||||||||||||||||||||||||||||||||||||||||||
+// var apiRouter = express.Router();
+
+// //middleware to use for all request
+// apiRouter.use(function(req, res, next) {
+//   console.log("somebody came to our API");
+
+// //more middleware to be added later
+// //this is where we will auth users.
+// next();
+
+// })
+
+// apiRouter.get('/', function (req, res) {
+//     res.json({ message: 'hooray! welcome to our api' });
+// });
+
+
+
+
+// //routes that end in /users
+
+// apiRouter.route('/users')
 // //basic route for home page
 //   var app = express();
 ///////////////////////////
 ////TWITTER AUTH ROUTE////
 /////////////////////////
-  router.get('/',
-  function(req, res) {
-    res.render('home', { user: req.user });
-  });
 
   router.get('/login',
   function(req, res){

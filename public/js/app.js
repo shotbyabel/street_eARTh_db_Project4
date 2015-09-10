@@ -32,6 +32,14 @@ angular.module( 'myApp', ['ui.router'])
         controller:   'ContractController',
         controllerAs: 'vm'
 
+       }) 
+
+     .state('/signup', {
+        url:          '/signup',
+        templateUrl:  'templates/signup.html',
+        controller:   'SignupController',
+        controllerAs: 'vm'
+
        }); 
 
 
