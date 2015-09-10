@@ -1,7 +1,8 @@
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/application-title');
+mongoose.connect('mongodb://localhost/streetEarth');
 
-var Resource = require('./models/Resource');
+var User    = require('./models/User');
+var ArtWork = require('./models/Artwork');
 
 // callback-style
 Resource.remove({}, function(err) {
@@ -9,10 +10,30 @@ Resource.remove({}, function(err) {
   console.log("All resources removed...");
 });
 
-var newResources = [
-  {name: 'Resource A'},
-  {name: 'Resource B'}
+var newArtwork = [
+  
+  {
+
+    photo_uri: "http://i.imgur.com/bsqK0Fz.png",
+    country: "USA",
+    city: "Los Angeles",
+    area: "Arts District",
+    landmark: "The Container yard",
+    human: "false"
+    animals: "true"
+    graffiti: "false"
+    scripts: "false"
+    abstract: "false"
+    stencils_posters: "false"
+    artist_id: "Binho"
+    user_id:""
+  },
+
 ];
+
+
+
+
 
 // promise-style
 Resource

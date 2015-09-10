@@ -1,3 +1,9 @@
+<head>
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/main.css">  
+
+</head> 
+
  <script>
   $(document)
     .ready(function() {
@@ -41,10 +47,9 @@
     <h1 class="ui white image header">
       <img src="/img/StE_icon.png" class="image">
       <div class="content">
-        LOG IN
       </div>
     </h1>
-    <form class="ui large form">
+    <form class="ui small form">
       <div class="ui stacked segment" id="extra-width">
         <div class="field">
           <div class="ui left icon input">
@@ -58,7 +63,7 @@
             <input ng-model="vm.password" type="password" name="password" placeholder="Password">
           </div>
         </div>
-        <div ng-click="vm.login()" class="ui fluid large green submit button">Login</div>
+        <div ng-click="vm.login()" class="ui large green submit button">Login</div>
       </div>
 
       <div class="ui error message"></div>

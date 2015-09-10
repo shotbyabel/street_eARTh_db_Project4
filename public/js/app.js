@@ -2,19 +2,38 @@
 (function() {
   'use strict';
 
-angular.module( 'myApp',['ui.router'])
+angular.module( 'myApp', ['ui.router'])
   .config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider){
     $stateProvider
-      .state('home', {
+      .state('/home', {
         url:          '/home',
         templateUrl:  'templates/home.html'
       })
-     .state('login', {
+
+     .state('/login', {
         url:          '/login',
         templateUrl:  'templates/login.html',
         controller:   'LoginController',
         controllerAs: 'vm'
-      });
+
+      })
+
+     .state('/about', {
+        url:          '/about',
+        templateUrl:  'templates/about.html',
+        controller:   'AboutController',
+        controllerAs: 'vm'
+        
+      })
+
+     .state('/contact', {
+        url:          '/contact',
+        templateUrl:  'templates/contact.html',
+        controller:   'ContractController',
+        controllerAs: 'vm'
+
+       }); 
+
 
       $urlRouterProvider.otherwise('/home'); 
 
