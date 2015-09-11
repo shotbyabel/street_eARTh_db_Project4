@@ -1,4 +1,4 @@
-<div class="field">
+<!-- <div class="field">
   <label>Search for a Country:</label>
   <input placeholder="type a country here.." type="text" ng-model="vm.searchCountry">
 </div>
@@ -9,8 +9,124 @@
 <div class="field">
   <label>Search for an Area:</label>
   <input placeholder="type an area here.." type="text" ng-model="vm.searchArea">
-</div>
+</div> -->
 
+<style type="text/css">
+
+li {
+
+ color:black;
+ font-weight: 500;
+
+}
+
+
+</style>
+<style type="text/css"></style>
+
+<div class="ui inverted green segment">
+ <form class="ui inverted form" method="post" action="/">
+
+<div class="ui inverted form">
+    <div class="six fields">
+
+      <div class="field">
+        <label>Search for a Country:</label>
+        <input placeholder="type a country here.." type="text" ng-model="vm.searchCountry">
+      </div>
+
+      <div class="field">
+        <label>Search for a City</label>
+        <input placeholder="type a city here.." type="text" ng-model="vm.searchCity">
+      </div>
+    <!-- <div class="two fields"> -->  
+      <div class="field">
+        <label>Area</label>
+          <input placeholder="type an area here.." type="text" ng-model="vm.searchArea">
+            <div class="ui checkbox">
+          <input type="checkbox" tabindex="0">
+        <label>Search #'s<i class="twitter icon"></i><i class="instagram icon"></i></label>
+        </div>
+      </div>
+      
+      <div class="field">
+        <label>Landmark</label>
+          <input placeholder="type landmark here" type="text" ng-model="vm.searchLandmark">
+            <div class="ui checkbox">
+          <input type="checkbox" tabindex="0">
+        <label>Search #'s<i class="twitter icon"></i><i class="instagram icon"></i></label>
+        </div>
+      </div>
+    <!-- <div class="two fields"> -->
+      <div class="field">
+        <label>Artist</label>
+        <input placeholder="enter artist name.." type="text">
+        <div class="ui checkbox">
+          <input type="checkbox" tabindex="0">
+        <label>Search #'s<i class="twitter icon"></i><i class="instagram icon"></i></label>
+        </div>
+      </div>
+      <div class="field">
+        <label>Facilitator </label>
+        <input placeholder="Facilitator  or foundation name here.." type="text">
+          <div class="ui checkbox">
+          <input type="checkbox" tabindex="0">
+        <label>Search #'s<i class="twitter icon"></i><i class="instagram icon"></i></label>
+        </div>
+      </div>
+      </div>
+    </div>
+    <br>
+    <div class="eight fields">
+    <div class="field">
+      <div class="ui radio checkbox">
+        <input type="checkbox" name="fruit" tabindex="0">
+        <label>Humans</label>
+      </div>
+    </div>
+    <div class="field">
+      <div class="ui radio checkbox">
+        <input type="checkbox" name="fruit" tabindex="0">
+        <label>Animals</label>
+      </div>
+    </div>
+    <div class="field">
+      <div class="ui radio checkbox">
+        <input type="checkbox" name="fruit" tabindex="0">
+        <label>Graffiti</label>
+      </div>
+    </div>
+    <div class="field">
+      <div class="ui radio checkbox">
+        <input type="checkbox" name="fruit" tabindex="0">
+        <label>Scripts</label>
+      </div>
+    </div>
+    <div class="field">
+      <div class="ui radio checkbox">
+        <input type="checkbox" name="fruit" tabindex="0">
+        <label>Abstract</label>
+      </div>
+    </div>
+    <div class="field">
+      <div class="ui radio checkbox">
+        <input type="checkbox" name="fruit" tabindex="0">
+        <label>Collab</label>
+      </div>
+    </div>
+    <div class="field">
+      <div class="ui radio checkbox">
+        <input type="checkbox" name="fruit" tabindex="0">
+        <label>Patterns</label>
+      </div>
+    </div>
+        <div class="field">
+      <div class="ui radio checkbox">
+        <input type="checkbox" name="fruit" tabindex="0">
+        <label>Stencil/Poster</label>
+      </div>
+    </div>
+  </div>
 
 <br>
 <br>
@@ -32,7 +148,18 @@ $('.arts')
 
 <br>
 <div class="ui three stackable cards">
-  <div class="card" ng-repeat="artwork in vm.artworks | filter:{country: vm.searchCountry, artist: vm.searchCity, area: vm.searchArea}">
+  <div class="card" ng-repeat="artwork in vm.artworks | filter:{
+
+        country:  vm.searchCountry, 
+        city:     vm.searchCity, 
+        area:     vm.searchArea,
+        landmark: vm.searchLandmark,
+        artist:   vm.searchArtist,
+        facilitator: vm.seachFacilitator
+
+          }">
+
+
     <div class="image">
     <br>
     <br>
@@ -48,6 +175,8 @@ $('.arts')
       <div class="ui star rating" data-rating="4"></div>
     </div>
   </div>
+
+
 
 
 

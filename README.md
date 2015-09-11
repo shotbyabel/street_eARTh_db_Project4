@@ -3,38 +3,47 @@ Users will be contributors to the first ever database of art works found through
 
 I've traveled to 25 countries and I saw art being used to build up neighborhoods and to build pride amongs it's residents. 
 
-![Imgur](http://i.imgur.com/NkzQcAC.png)
+**HOME PAGE**
+![Imgur](http://i.imgur.com/EEq2Zaw.png)
+
+**LOGIN PAGE**
+![Imgur](http://i.imgur.com/ihCEeGI.png)
+
+**ART WORK GALLERY**
+![Imgur](http://i.imgur.com/Hnj1qn3.png)
+
 
 ###Github Repo
-[Street eARTh db GitHub]()
+[Street eARTh db GitHub](https://github.com/shotbyabel)
 
 ###My Scrum! 
-[Trello Board]()
+[Trello Board](https://trello.com/b/N1JFGYZY/p4-street-earth-db)
 
 
 ###MVP
 ####User Stories
 
-- [] as a user I want to log in with my facebook and/or twitter accounts.
+- [x] as a user I want to log in with my facebook and/or twitter accounts.
 
-- [] as a user I want a landing page that displays street art
+- [x] as a user I want a landing page that displays street art
 
-- [] as a user I want to post photos on my profile for others to view
+- [x] as a user I want to post photos on my profile for others to view
 
-- [] as a user I want to search for photos with specific filters/criteria
+- [x] as a user I want to search for photos with specific filters/criteria
 
-- [] as a user I want to view where the photos are on a map
-
-- [] As a user I want to see other photos and others profiles.
+- [x] As a user I want to see other photos and others profiles.
 ____
 
-- [] as a developer I want to use Angular JS as much as possible
+- [x] as a developer I want to use Angular JS as much as possible
 
-- [] as a developer I want to get a freakn API working
 
 
 ###ICEBOX
 ####coming soon
+
+- [] as a user I want to view where the photos are on a map
+
+- [] as a developer I want to get an API working
 
 - [] as a user I want to log in without having to use my facebook and Twitter
 
@@ -52,48 +61,38 @@ ____
 
 ###Technologies Used
 
-- Node JS
+- MEAN Stack
+  * Mongo DB
+  * Express
+  * Node Js
+  * Angular Js
 
-- Express
- 
 - Bower
 
 - Gulp 
 
-- MongoDB
-
-- Angular JS
-
 - Semantic UI
 
-- UI Routerœ
+- UI Router
 
 _________
 
-steps 
+###Instructions
 
-route oauth/twitter
-Consumer Key (API Key)  inRHdwb5AsjBNBxnEjsfDkvI3 
+- Fork this repo
 
-Consumer Secret (API Secret)  MuUoRKb1j1di5frXrsnIAfcIVcO4Bi3q5l5jyPzns7bPgQL8aR
+- `git clone` but I am not sure if you should clone it if you
+ fork it? (sorry I should know this.)
 
-npm install --save dotenv
+- don't forget to run `npm install`
 
-set up .env file with twitter secret and key
+###Unresolved Issues
 
-**Goole API KEY**
-AIzaSyBKtM2B8RrfkDhFd25eeERhfpiQuBMsefo
+- User API from MEAN Machine book.
+- Angular Authentication
+- Home page menu set up
 
-**Google Oauth**
-streetEarthApp
-http://127.0.0.1:3000/oauth/google
 
-Client ID
-1021390864185-nvafr0g9nse73290e3ggtcggr48vncb1.apps.googleusercontent.com
-Here is your client secret
-v77dbmt1zSANYhgFEotAJjOe
-
-background-image:  url(http://i.imgur.com/7xoaUaM.gif) no-repeat center center fixed; 
 
 
 
