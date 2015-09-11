@@ -120,6 +120,131 @@ var newArtwork = [
     // user_id:""
   },
 
+{
+
+    photo_uri: "http://i.imgur.com/EpBvjCU.png",
+    country: "Brazil",
+    city: "Sao Paulo",
+    area: "Centro",
+    landmark: "Tunel de Madalena",
+    artist: "MINHAU", //hardcoded for now
+    human: true,
+    animals: true,
+    graffiti: false,
+    scripts: false,
+    abstract: false,
+    stencils_posters: false
+    // artist_id: "Binho"
+    // user_id:""
+  },
+
+{
+
+    photo_uri: "http://i.imgur.com/bl33G9a.png",
+    country: "England",
+    city: "London",
+    area: "East London",
+    landmark: "Shoreditch",
+    artist: "EL MAC", //hardcoded for now
+    human: true,
+    animals: false,
+    graffiti: false,
+    scripts: false,
+    abstract: false,
+    stencils_posters: false
+    // artist_id: "Binho"
+    // user_id:""
+  },
+
+  {
+
+    photo_uri: "http://i.imgur.com/3EgiAqD.png",
+    country: "USA",
+    city: "New York",
+    area: "Queens",
+    landmark: "5 Pointz",
+    artist: "Jimmy C", //hardcoded for now
+    human: true,
+    animals: false,
+    graffiti: false,
+    scripts: false,
+    abstract: false,
+    stencils_posters: false
+    // artist_id: "Binho"
+    // user_id:""
+  },
+
+  {
+
+    photo_uri: "http://i.imgur.com/oV3QAbk.png",
+    country: "England",
+    city: "London",
+    area: "East London",
+    landmark: "Brick Lane",
+    artist: "Jimmy C", //hardcoded for now
+    human: true,
+    animals: false,
+    graffiti: false,
+    scripts: false,
+    abstract: false,
+    stencils_posters: false
+    // artist_id: "Binho"
+    // user_id:""
+  },
+
+  {
+
+    photo_uri: "http://i.imgur.com/4laM09C.png",
+    country: "France",
+    city: "Paris",
+    area: "19th ARR",
+    landmark: "Quai de la Seine",
+    artist: "Jimmy C", //hardcoded for now
+    human: true,
+    animals: false,
+    graffiti: false,
+    scripts: false,
+    abstract: false,
+    stencils_posters: false
+    // artist_id: "Binho"
+    // user_id:""
+  },
+
+  {
+
+    photo_uri: "http://i.imgur.com/qK8cW1H.png",
+    country: "Brazil",
+    city: "Sao Paulo",
+    area: "Vila Madalena",
+    landmark: "",
+    artist: "Jimmy C", //hardcoded for now
+    human: true,
+    animals: false,
+    graffiti: false,
+    scripts: false,
+    abstract: false,
+    stencils_posters: false
+    // artist_id: "Binho"
+    // user_id:""
+  },
+
+  {
+
+    photo_uri: "http://i.imgur.com/yFhrBIH.png",
+    country: "South Korea",
+    city: "Seoul",
+    area: "Gangnam District",
+    landmark: "Trade Tower",
+    artist: "Unknow", //hardcoded for now
+    human: true,
+    animals: false,
+    graffiti: false,
+    scripts: false,
+    abstract: true,
+    stencils_posters: false
+    // artist_id: "Binho"
+    // user_id:""
+  },
 
 
 ];

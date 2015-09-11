@@ -1,3 +1,280 @@
-<br>
 
-<h1>HOME</h1>
+<html lang="en" class="no-js" ng-app="myApp">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title></title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+
+  <!-- Place favicon.ico in the root directory -->
+
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/main.css">
+<!--   Semantic UI -->
+  <link rel="stylesheet" type="text/css" href="/semantic/out/semantic.min.css">
+<!--   <link rel="stylesheet" type="text/css" class="ui" href="//oss.maxcdn.com/semantic-ui/2.1.3/components/component-name.min.css"> -->
+  <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.3.min.js"><\/script>')</script>
+  <script src="/semantic/out/semantic.min.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.js"></script>
+  <!-- Async-sourced local JS modules -->
+  <script src="js/app.js"></script>
+  <script src="js/loginController.js"></script>
+</head>
+<!-- KEEP FROM HERE TO BELOW -->
+  <style type="text/css">
+
+    .hidden.menu {
+      /*background-image: url(http://i.imgur.com/7xoaUaM.gif);*/
+      display: none;
+    }
+
+    #abelgif {
+       background: url(http://i.imgur.com/7xoaUaM.gif);
+       background-size: cover;
+       z-index: -1;
+        top: 0px;
+        left: 0px;
+
+    }
+
+    .masthead.segment {
+      min-height: 700px;
+      padding: 1em 0em;
+    }
+    .masthead .logo.item img {
+      margin-right: 1em;
+    }
+    .masthead .ui.menu .ui.button {
+      margin-left: 0.5em;
+    }
+    .masthead h1.ui.header {
+      margin-top: 3em;
+      margin-bottom: 0em;
+      font-size: 4em;
+      font-weight: normal;
+    }
+    .masthead h2 {
+
+      font-size: 1.7em;
+      font-weight: normal;
+    }
+
+    .ui.vertical.stripe {
+
+      padding: 8em 0em;
+    }
+    .ui.vertical.stripe h3 {
+
+      font-size: 2em;
+    }
+    .ui.vertical.stripe .button + h3,
+    .ui.vertical.stripe p + h3 {
+      margin-top: 3em;
+    }
+    .ui.vertical.stripe .floated.image {
+      clear: both;
+    }
+    .ui.vertical.stripe p {
+      font-size: 1.33em;
+    }
+    .ui.vertical.stripe .horizontal.divider {
+      margin: 3em 0em;
+    }
+
+    .quote.stripe.segment {
+      padding: 0em;
+    }
+    .quote.stripe.segment .grid .column {
+      padding-top: 5em;
+      padding-bottom: 5em;
+    }
+
+    .footer.segment {
+      padding: 5em 0em;
+    }
+
+    .secondary.pointing.menu .toc.item {
+      display: none;
+    }
+
+    @media only screen and (max-width: 700px) {
+      .ui.fixed.menu {
+        display: none !important;
+      }
+      .secondary.pointing.menu .item,
+      .secondary.pointing.menu .menu {
+        display: none;
+      }
+      .secondary.pointing.menu .toc.item {
+        display: block;
+      }
+      .masthead.segment {
+        min-height: 350px;
+      }
+      .masthead h1.ui.header {
+        font-size: 2em;
+        margin-top: 1.5em;
+      }
+      .masthead h2 {
+        margin-top: 0.5em;
+        font-size: 1.5em;
+      }
+    }
+
+
+  </style>
+  <script src="assets/library/jquery.min.js"></script>
+  <script src="../dist/components/visibility.js"></script>
+  <script src="../dist/components/sidebar.js"></script>
+  <script src="../dist/components/transition.js"></script>
+  <script>
+  $(document)
+    .ready(function() {
+
+      // fix menu when passed
+      $('.masthead')
+        .visibility({
+          once: false,
+          onBottomPassed: function() {
+            $('.fixed.menu').transition('fade in');
+          },
+          onBottomPassedReverse: function() {
+            $('.fixed.menu').transition('fade out');
+          }
+        })
+      ;
+
+      // create sidebar and attach to menu open
+      $('.ui.sidebar')
+        .sidebar('attach events', '.toc.item')
+      ;
+
+    })
+  ;
+  </script>
+</head>
+<body>
+
+<!-- Following Menu -->
+<div class="ui large top fixed hidden menu">
+  <div class="ui container">
+    <a class="item">Contact</a>
+    <a class="item">About us</a>
+    <div class="right menu">
+      <div class="item">
+        <a class="ui green button">Log in</a>
+      </div>
+      <div class="item">
+        <a class="ui green button">Sign Up</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Sidebar Menu -->
+<div class="ui vertical inverted sidebar menu">
+  <a class="item">Contact</a>
+  <a class="item">Log in</a>
+  <a class="item">Sign up</a>
+</div>
+
+
+<!-- Page Contents -->
+<div class="pusher">
+  <div id="abelgif" class="ui inverted vertical masthead center aligned segment">
+
+    <div class="ui container">
+      <div class="ui large secondary inverted pointing menu">
+        <a class="toc item">
+          <i class="sidebar icon"></i>
+        </a>
+        <a></a>
+        <div class="right item">
+        <a class="ui large inverted green button">Contact</a>
+        <a class="ui large inverted green button">About Us</a>
+        
+        <a class="ui large inverted green button">Log in</a>
+        <a class="ui large inverted green button">Sign Up</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="ui text container">
+      <h1 class="ui inverted header">
+      The earth's walls are a canvas.
+      </h1>
+      <h3></h3>
+      <div class="ui medium inverted green"></div>
+    </div>
+
+  </div>
+
+  <div class="ui vertical inverted stripe segment">
+    <div class="ui middle aligned stackable grid container">
+      <div class="row">
+        <div class="eight wide column">
+          <h3 class="ui inverted header">The street eARTh database</h3>
+          <p>Initially a documentary project about urban art around the world is now expanding to be the first database of street art. People like you can contribute to this collection so that others can enjoy the various open air museums that make up our neighborhoods, cities and the eArth!</p>
+        </div>
+        <div class="six wide right floated column">
+          <img src="img/mainLogo.png">
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="ui vertical stripe quote segment">
+    <div class="ui equal width stackable internally celled grid">
+      <div class="center aligned row">
+        <div class="column">
+          <h3>Enrich your community!</h3>
+          <p>What famous artist have colored your hood?</p>
+        </div>
+        <div class="column">
+          <h3>Urban arts connoisseur.</h3>
+          <p>
+            Recognize your local artist locally and abroad!
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+<div class="ui inverted vertical footer segment">
+    <div class="ui container">
+      <div class="ui stackable inverted divided equal height stackable grid">
+        <div class="three wide column">
+          <h4 class="ui inverted header">More About</h4>
+          <div class="ui inverted link list">
+            <a href="#" class="item">Abel Hernandez</a>
+            <a href="#" class="item">Street Earth Project</a>
+            <a href="#" class="item">City Showoffs</a>
+            <a href="#" class="item">Travel-rhhythms</a>
+          </div>
+        </div>
+        <div class="three wide column">
+          <h4 class="ui inverted header">Services</h4>
+          <div class="ui inverted link list">
+            <a href="#" class="item">Full Stack Web Development</a>
+            <a href="#" class="item">Photography</a>
+            <a href="#" class="item">Project Consultation</a>
+            <a href="#" class="item">Travel</a>
+          </div>
+        </div>
+        <div class="seven wide column">
+          <h4 class="ui inverted header">by Abel Hernandez</h4>
+          <p>all rights reserve created at GA in DTLA. Thank you to my instructors and classmates</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+
+</html>

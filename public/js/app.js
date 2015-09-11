@@ -26,10 +26,18 @@ angular.module( 'myApp', ['ui.router'])
         
       })
 
-     .state('/contact', {
+      .state('/contact', {
         url:          '/contact',
         templateUrl:  'templates/contact.html',
-        controller:   'ContractController',
+        controller:   'ContactController',
+        controllerAs: 'vm'
+
+       }) 
+
+     .state('/artworks', {
+        url:          '/artworks',
+        templateUrl:  'templates/artworks.html',
+        controller:   'ArtworksController',
         controllerAs: 'vm'
 
        }) 
@@ -40,15 +48,8 @@ angular.module( 'myApp', ['ui.router'])
         controller:   'SignupController',
         controllerAs: 'vm'
 
-       }) 
-
-      .state('/artworks', {
-        url:          '/artworks',
-        templateUrl:  'templates/artworks.html',
-        controller:   'ArtworksController',
-        controllerAs: 'vm'
-
        }); 
+
 
 
       $urlRouterProvider.otherwise('/home'); 
