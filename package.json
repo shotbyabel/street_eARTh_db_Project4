@@ -5,6 +5,9 @@
   "scripts": {
     "start": "node ./bin/www"
   },
+  "engines": {
+    "iojs": ">= 1.6"
+  },
   "dependencies": {
     "bcrypt-nodejs": "0.0.3",
     "better-console": "^0.2.4",
