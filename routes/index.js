@@ -12,6 +12,7 @@
   res.render('index', {user: req.user});
 
     });
+  //
   router.get('/signup', function (req, res ) {
     res.render('signup')
   })
@@ -38,6 +39,16 @@
 //||||||||||||||||||||||||||||||||||||||||||||||||
 //||||||USERS API ROUTES||||||||||||||||||||||||||
 //||||||||||||||||||||||||||||||||||||||||||||||||
+
+var Artwork = require('../models/Artwork')
+
+  router.get('/artworks', function (req, res) {
+    Artwork.find({}, function (err, artworks) {
+      res.json(artworks)
+    });
+    
+
+  })
 // var apiRouter = express.Router();
 
 // //middleware to use for all request

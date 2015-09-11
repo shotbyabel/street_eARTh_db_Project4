@@ -40,6 +40,14 @@ angular.module( 'myApp', ['ui.router'])
         controller:   'SignupController',
         controllerAs: 'vm'
 
+       }) 
+
+      .state('/artworks', {
+        url:          '/artworks',
+        templateUrl:  'templates/artworks.html',
+        controller:   'ArtworksController',
+        controllerAs: 'vm'
+
        }); 
 
 

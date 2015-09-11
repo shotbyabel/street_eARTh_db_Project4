@@ -35,24 +35,31 @@
     </div>
 
   <div class="ui inverted form">
-    <div class="two fields">
+    <div class="six fields">
+
       <div class="field">
         <label>Country</label>
         <input placeholder="type country here.." type="text">
       </div>
+
+      <div class="field">
+        <label>Search for a Country:</label>
+        <input placeholder="type a country here.." type="text" ng-model="vm.searchCountry">
+       </div>
+
+
+
       <div class="field">
         <label>City</label>
         <input placeholder="type a city here.." type="text">
-      </div>
-    </div>
-    <div class="two fields">
-      
+      </div>   
+    <!-- <div class="two fields"> -->  
       <div class="field">
         <label>Area</label>
           <input placeholder="type an area of the city here.." type="text">
             <div class="ui checkbox">
           <input type="checkbox" tabindex="0">
-        <label>Search Instagram and Twitter #'s</label>
+        <label>Search #'s </label>
         </div>
       </div>
       
@@ -61,18 +68,16 @@
           <input placeholder="type landmark here" type="text">
             <div class="ui checkbox">
           <input type="checkbox" tabindex="0">
-        <label>Search Instagram and Twitter #'s</label>
+        <label>Search #'s </label>
         </div>
       </div>
-    </div>
-    
-    <div class="two fields">
+    <!-- <div class="two fields"> -->
       <div class="field">
         <label>Artist</label>
         <input placeholder="enter artist name.." type="text">
         <div class="ui checkbox">
           <input type="checkbox" tabindex="0">
-        <label>Search Instagram and Twitter #'s</label>
+        <label>Search #'s </label>
         </div>
       </div>
       <div class="field">
@@ -80,12 +85,13 @@
         <input placeholder="Facilitator  or foundation name here.." type="text">
           <div class="ui checkbox">
           <input type="checkbox" tabindex="0">
-        <label>Search Instagram and Twitter #'s</label>
+        <label>Search #'s </label>
         </div>
+      </div>
       </div>
     </div>
 
-    <div class="grouped fields">
+    <div class="eight fields">
     <div class="field">
       <div class="ui radio checkbox">
         <input type="checkbox" name="fruit" tabindex="0">

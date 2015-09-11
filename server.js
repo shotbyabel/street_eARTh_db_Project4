@@ -51,13 +51,13 @@ app.use(require('express-session')({ secret: 'keyboard cat', resave: true, saveU
 
 //||||||USERS API CONFIG||||||||||||||||||||||||||
 //||configure our app to handle CORS requests
-app.use(function(req, res, next) {
-  res.setHeader('Access-Control-Allow-Origin', '*');
-  res.setHeader('Access-Control-Allow-Methods', 'GET, POST');
-  res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type, Authorization');
+// app.use(function(req, res, next) {
+//   res.setHeader('Access-Control-Allow-Origin', '*');
+//   res.setHeader('Access-Control-Allow-Methods', 'GET, POST');
+//   res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type, Authorization');
 
-next();
-});
+// next();
+// });
 
 app.use(logger('dev'));
 
@@ -86,12 +86,12 @@ app.use('/', routes);
 // app.use('/api', apiRouter);
 
 ////////////////////
-////PASSPORT CONFIG
+////PASSPORT set up
 //////////////////////--
-// var User = require('./models/User');
-// passport.use(new LocalStrategy(User.authenticate()));
-// passport.serializeUser(User.serializeUser());
-// passport.deserializeUser(User.deserializeUser());
+var User = require('./models/User');
+passport.use(new LocalStrategy(User.authenticate()));
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
 
 
 // catch 404 and forward to error handler

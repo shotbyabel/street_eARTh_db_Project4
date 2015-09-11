@@ -1,0 +1,54 @@
+<div class="field">
+  <label>Search for a Country:</label>
+  <input placeholder="type a country here.." type="text" ng-model="vm.searchCountry">
+</div>
+<div class="field">
+  <label>Search for a City:</label>
+  <input placeholder="type a city here.." type="text" ng-model="vm.searchCity">
+</div>
+<div class="field">
+  <label>Search for an Area:</label>
+  <input placeholder="type an area here.." type="text" ng-model="vm.searchArea">
+</div>
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<script>
+$('.arts')
+  .transition({
+    animation : 'jiggle',
+    duration  : 800,
+    interval  : 200
+  })
+;
+</script>
+
+
+<br>
+<div class="ui three stackable cards">
+  <div class="card" ng-repeat="artwork in vm.artworks | filter:{country: vm.searchCountry, artist: vm.searchCity, area: vm.searchArea}">
+    <div class="image">
+    <br>
+    <br>
+      <img class="arts" ng-src="{{artwork.photo_uri}}"></img>
+    </div>
+     <li>{{artwork.country}}</li>
+      <li>{{artwork.city}}</li>
+      <li>{{artwork.area}}</li>
+      <li>{{artwork.landmark}}</li>
+    <li>{{artwork.artist}}</li>
+    <div class="extra">
+      Rating:
+      <div class="ui star rating" data-rating="4"></div>
+    </div>
+  </div>
+
+
+
+  

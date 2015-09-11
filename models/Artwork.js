@@ -13,6 +13,7 @@ var ArtworkSchema = new Schema({
   city:      String,
   area:      String,
   landmark:  String,
+  artist:    String,
   human:     Boolean,
   animals:   Boolean,
   graffiti:  Boolean,
